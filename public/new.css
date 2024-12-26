@@ -1,0 +1,12 @@
+body{
+    background-color: aqua;
+}
+#text{
+    height: 1rem;
+    width: 10rem;
+
+}
+button{
+    height: 1rem;
+    width: 15rem;
+}

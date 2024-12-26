@@ -1,0 +1,57 @@
+body{
+    background-color:rgba(241, 241, 241, 0.714);
+}
+
+.header{
+    height: 10vh;
+    width: 100%;
+    background-color: rgba(241, 241, 241, 0.714);
+
+}
+
+
+h1{
+    color: rgb(205, 33, 33);
+}
+h2{
+    color: rgb(205, 33, 33);
+}
+.post{
+    margin-left:0rem;
+    height: 40vh;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0px 0px 2px black;
+}
+.post-cont{
+    margin-left: 1rem;
+}
+
+.user{
+    font-style: italic;
+}
+button{
+    height:1.2rem;
+    width:5rem;
+    border-radius: 8px;
+    border: none;
+    color: rgb(205, 33, 33); 
+    background-color:rgb(0, 0, 0,0.05);
+    box-shadow: 0px 0px 2px black;
+    margin-top: 0.5rem;
+}
+a{
+    text-decoration: none;
+    color:rgb(205, 33, 33); 
+}
+#postbtn{
+    height:1.5rem;
+    width:8rem;
+    border-radius: 8px;
+    border: none;
+    color: rgb(205, 33, 33); 
+    background-color:rgb(0, 0, 0,0.05);
+    box-shadow: 0px 0px 2px black;
+    margin-top: 0.5rem;
+}
