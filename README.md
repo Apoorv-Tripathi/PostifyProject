@@ -2,6 +2,10 @@
 
 A social platform clone where users can post, edit, delete, and view posts.
 
+## Project Note
+
+This project was originally built around two years ago while I was learning backend development. I recently revisited it to improve the UI/UX, clean up the code, and fix a few issues.
+
 ## Features
 
 - Create new posts
