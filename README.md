@@ -22,7 +22,7 @@ This project was originally built around two years ago while I was learning back
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 Then open the local server URL in your browser.
