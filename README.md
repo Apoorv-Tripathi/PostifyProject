@@ -18,7 +18,7 @@ A social platform clone where users can post, edit, delete, and view posts.
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 Then open the local server URL in your browser.
