@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Postify — All Posts</title>
+</head>
+<body>
+
+<%- include('navbar') %>
+
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">What's <span>happening</span></h1>
+        <% if (posts.length > 0) { %>
+            <span class="badge"><%= posts.length %> post<%= posts.length !== 1 ? 's' : '' %></span>
+        <% } %>
+    </div>
+
+    <% if (posts.length === 0) { %>
+        <div class="empty-state">
+            <div class="icon">📭</div>
+            <h3>No posts yet</h3>
+            <p>Be the first to share something!</p>
+            <a href="/posts/new" class="btn btn-primary">Create a Post</a>
+        </div>
+    <% } else { %>
+        <% for (let post of posts) { %>
+            <div class="post-card">
+                <div class="post-meta">
+                    <div class="avatar"><%= post.username.charAt(0).toUpperCase() %></div>
+                    <span class="post-username">@<%= post.username %></span>
+                    <% if (post.createdAt) { %>
+                        <span class="post-date">
+                            <%= new Date(post.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                        </span>
+                    <% } %>
+                </div>
+                <p class="post-content"><%= post.content %></p>
+                <div class="post-actions">
+                    <a href="/posts/<%= post.id %>" class="btn btn-outline btn-sm">👁 View</a>
+                    <a href="/posts/<%= post.id %>/edit" class="btn btn-ghost btn-sm">✏️ Edit</a>
+                    <form method="post" action="/posts/<%= post.id %>?_method=DELETE" onsubmit="return confirm('Delete this post?')">
+                        <button class="btn btn-danger btn-sm" type="submit">🗑 Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+
+</body>
+</html>

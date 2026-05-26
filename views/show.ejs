@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Postify — @<%= post.username %>'s Post</title>
+</head>
+<body>
+
+<%- include('navbar') %>
+
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">Post <span>Detail</span></h1>
+        <a href="/posts" class="btn btn-ghost btn-sm">← Back</a>
+    </div>
+
+    <div class="detail-card">
+        <div class="detail-header">
+            <div class="avatar-lg"><%= post.username.charAt(0).toUpperCase() %></div>
+            <div>
+                <div class="detail-username">@<%= post.username %></div>
+                <% if (post.createdAt) { %>
+                    <div class="detail-date">
+                        Posted on <%= new Date(post.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) %>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <p class="detail-content"><%= post.content %></p>
+
+        <div style="margin-bottom: 1.5rem;">
+            <span class="detail-id">ID: <%= post.id %></span>
+        </div>
+
+        <div class="post-actions">
+            <a href="/posts/<%= post.id %>/edit" class="btn btn-primary btn-sm">✏️ Edit Post</a>
+            <form method="post" action="/posts/<%= post.id %>?_method=DELETE" onsubmit="return confirm('Delete this post?')">
+                <button class="btn btn-danger btn-sm" type="submit">🗑 Delete</button>
+            </form>
+            <a href="/posts" class="btn btn-ghost btn-sm">← All Posts</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

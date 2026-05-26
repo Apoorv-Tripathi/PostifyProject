@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Postify — Edit Post</title>
+</head>
+<body>
+
+<%- include('navbar') %>
+
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">Edit <span>Post</span></h1>
+        <a href="/posts/<%= post.id %>" class="btn btn-ghost btn-sm">← Back</a>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.error === 'empty') { %>
+        <div class="alert alert-danger">⚠️ Post content cannot be empty.</div>
+    <% } %>
+
+    <div class="form-card">
+        <div class="post-meta" style="margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+            <div class="avatar"><%= post.username.charAt(0).toUpperCase() %></div>
+            <span class="post-username">@<%= post.username %></span>
+        </div>
+
+        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+            <div class="form-group">
+                <label class="form-label" for="content">Update your post</label>
+                <textarea
+                    class="form-control"
+                    id="content"
+                    name="content"
+                    rows="6"
+                    maxlength="500"
+                    required
+                ><%= post.content %></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">💾 Save Changes</button>
+                <a href="/posts/<%= post.id %>" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
